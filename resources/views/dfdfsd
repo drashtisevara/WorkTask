@@ -1,0 +1,62 @@
+ $accounts = Account::find($transactions->account_id);
+
+ if($req->type == income)
+ {
+ $accounts->total_balance += $transactions->amount;
+ }
+
+ elseif ($req->type == expense && $req->type == transfer)
+ {
+ $accounts->total_balance -= $transactions->amount;
+ }
+
+ else
+ {
+ $sourceAccount = Account::findOrFail($transactions->source_account_id);
+ $destinationAccount = Account::findOrFail($transactions->destination_account_id);
+ $sourceAccount->transfer($destinationAccount, $transactions->amount);
+ }
+
+
+
+ // 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ switch ($transactions->type) {
+ case 'income':
+ $accounts->total_balance += $transactions->amount;
+ break;
+ case 'expense':
+
+ // return Model::all()->reduce(function ($carry, $item) {
+ // return $item->type == 'credit'
+ // ? $carry + $item->balance : $carry - $item->balance;
+ // },0);
+
+ break;
+ case 'transfer':
+ $sourceAccount = Account::findOrFail($transactions->source_account_id);
+ $destinationAccount = Account::findOrFail($transactions->destination_account_id);
+ $sourceAccount->transfer($destinationAccount, $transactions->amount);
+ break;
+ default:
+ // Invalid transaction type
+ break;
+ }

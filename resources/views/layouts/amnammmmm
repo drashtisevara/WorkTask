@@ -1,0 +1,77 @@
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Student;
+class AccountController extends Controller
+
+{
+public function index()
+{
+$accounts =Account::all();
+return view('home', ['accounts'=>$accounts]);
+}
+public function create(Request $req)
+{
+$account = new Account;
+$account->id = $req->id;
+$account->account_name = $req->account_name;
+$account->account_number = $req->account_number;
+$account->total_balance = $req->total_balance;
+$account->total_transaction = $req->total_transaction;
+$account->total_deduct = $req->total_deduct;
+
+$student->save();
+return redirect(route('index'))->with('status', 'Account added!!!');
+}
+}
+
+
+<td>
+    <a href="" class="btn btn-info btn-sm">Users</a>
+    <a href="{{ url('/edit', $stu->id) }}" class="btn btn-info btn-sm">Users</a>
+    <a href="{{ url('/delete', $stu->id) }}" class="btn btn-danger btn-sm">Transactins</a>
+    <a href="{{ url('/edit', $stu->id) }}" class="btn btn-info btn-sm">Edit</a>
+    <a href="{{ url('/delete', $stu->id) }}" class="btn btn-danger btn-sm">Delete</a>
+
+
+</td>
+
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+<!-- <div>
+                        <form class="navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-white border-0 small"
+                                    placeholder="Search for...">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button"> <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                     </div> -->
+
+
+{{'add_users/'.$account_id}}
