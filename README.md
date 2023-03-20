@@ -24,11 +24,6 @@ Basic features include:
 * Transaction List  can be Filter by date range
 * Custom CRUD can be added easily.
 
-
-# User Credentials & Demo Link : 
-## Email : drashti@gmail.com
-## Password : 12345678
-
 It has the followng functionalities:
 
 * You can fill up the Account Details Form  after that you can see all bank account details, like Bank Name, Bank Account Number, Total Balance etc..
@@ -39,7 +34,25 @@ It has the followng functionalities:
 * You can delete your transaction, user or account details
 * It's simple to install and use..
 
-# ScreenShots
+## Libraries/Things to use:
+
+* Laravel
+* MySQL with Eloquent
+* MailTrap
+* Authorized and Public Routes
+* Controllers
+* Models
+* Modals of Pop up box 
+
+## How to Use :
+
+* Clone the repository with git clone.
+* Copy .env.example file to .env and edit database credentials there
+* Run Composer install
+* Run php artisan key:generate
+* Run php artisan migrate --seed (It has some seeded data for your testing)
+
+
 
 
 
