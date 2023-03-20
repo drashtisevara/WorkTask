@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +23,6 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <body id="page-top">
-
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -59,9 +61,11 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
         </ul>
+
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
+
             <!-- Main Content -->
             <div id="content">
                 <div class="container">
@@ -112,33 +116,17 @@
                                             <td>{{$au['total_transaction']}}</td>
                                             <td>{{$au['total_deduct']}}</td>
                                             <td>
-
                                                 <a href="{{'users/'.$au['id']}}" class=" btn btn-info btn-sm">Users</a>
                                                 <a href="{{'transaction/'.$au['id'] }}"
                                                     class="btn btn-danger btn-sm">Transactions</a>
                                                 <a href="{{ url('edit/'.$au->id) }}"
                                                     class=" btn btn-info btn-sm">Edit</a>
-
-
-
-
-
-
-
                                                 <a href="{{ url('deleteaccount/'.$au->id) }}"
                                                     class="btn btn-danger btn-sm">Delete</a>
-
-
                                             </td>
-
-
-
-
                                         </tr>
                                         @endforeach
                                     </tbody>
-
-
                             </div>
                         </div>
                     </div>
@@ -166,9 +154,6 @@
     <!-- Page level plugins -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="//cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
-
-
-
 
 </body>
 

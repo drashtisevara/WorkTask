@@ -73,7 +73,7 @@
 
                         <button type="button" class="btn btn-primary float-end" data-toggle="modal"
                             data-target="#exampleModalLong">
-                            Update Users
+                            Edit User Details
                         </button>
                     </div>
 
@@ -84,7 +84,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Update Users</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Edit User Details</h5>
                                 </div>
 
 

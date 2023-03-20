@@ -54,7 +54,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'account_name' => 'required|string|max:255',
+             'account_number' => 'required|string|max:255',
         ]);
+        
     }
 
     /**
@@ -70,11 +73,12 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $user->account()->create([
+         
+            'account_name' => $data['account_name'],
+            'account_number' => $data['account_number'],
+        ]);
         
-
-        $user->notify(new WelcomeEmailNotification());
         return $user;
-
-        return redirect('login');
     }
 }

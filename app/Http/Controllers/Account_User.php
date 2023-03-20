@@ -31,7 +31,7 @@ class Account_User extends Controller
         $accountUser->user_name=$req->user_name;
         $accountUser->user_email=$req->user_email;
         $accountUser->user_phone=$req->user_phone;
-        $accountUser->user_id=auth()->user()->id;
+        $accountUser->users_id=auth()->user()->id;
         $accountUser->accounts_id=$req->account_id;
         
         $accountUser->save();
@@ -91,6 +91,7 @@ class Account_User extends Controller
         $accountUser->update();
         
         // return view('editusers' , ['accounts_user'=> $accountUser, 'account_id'=>$account_id]);  
+        
         // return redirect('users/'.$account_id);
         return redirect()->back()->with('status', 'User Updated  Successfully');
     }

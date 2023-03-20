@@ -16,14 +16,30 @@ class TransactionController extends Controller
      */
     public function index($account_id)
     {
+        
         $transactions = Transaction::where('accounts_id',$account_id)
         ->get();  
-        $transactions = Transaction::with('account.account_models')->get();
+        $transactions = Transaction::with('account_models')->get();
+        $transactions = Transaction::with('account')->get();
     
         $accountUser = $this->getUsers();
         $accounts = $this->getAccounts();
+
+        $transactions = Transaction::where('accounts_id', $account_id)->orderByDesc('created_at')->get();
+       
+        
+        
         return view('transaction' ,  ['transactions'=> $transactions, 'account_id'=>$account_id ], compact('accountUser', 'accounts')); 
         
+    }
+
+    public function showTransaction($account_id)
+    {
+        // $transactions = Transaction::all();
+        $transactions = Transaction::whereIn('accounts_id', $account_id)->orderByDesc('created_at')->get();
+        return view('transaction', ['transactions'=> $transactions, 'account_id'=>$account_id ], compact('transactions'));
+        
+      
     }
 
     public function show()
@@ -86,6 +102,8 @@ class TransactionController extends Controller
 
         $accounts = Account::find($transactions->accounts_id);
         $accounts->increment('total_transaction');
+
+        
         
         // $accounts->total_transaction->increment('total_transaction');
         // Perform addition or subtraction based on the transaction type
@@ -143,9 +161,9 @@ class TransactionController extends Controller
     }
 
    
-    public function update(Request $req,  $id)
+    public function update(Request $req,  $account_id)
     {
-        $transactions = Transaction::find($id);
+        $transactions = Transaction::find($account_id);
       
         $transactions->amount=$req->amount;
         $transactions->type=$req->type;
@@ -153,15 +171,16 @@ class TransactionController extends Controller
         $transactions->note=$req->note;
 
         $accounts = Account::find($transactions->accounts_id);
-
-        if($req->type === 'income')
+        if($req->type == 'income')
         {
+            $accounts->total_balance += $transactions->amount;
+        }
+        elseif($req->type == 'expense'|| $req->type == 'transfer' )
+        {
+            $accounts->total_deduct = $accounts->total_deduct += $transactions->amount;
             $accounts->total_balance -= $transactions->amount;
         }
-        else{
-        $accounts->total_balance += $transactions->amount;
-        }
-
+     
 
        
 
@@ -172,7 +191,8 @@ class TransactionController extends Controller
         $transactions->update();
     });
 
-    return redirect('transaction/'.$id);
+    return redirect()->back()->with('status', 'Transaction Created Successfully');
+    // return redirect('transaction/'.$account_id);
     }
     public function destroy(Request $req,$id)
     {
@@ -183,13 +203,16 @@ class TransactionController extends Controller
             $accounts = Account::find($transactions->accounts_id);
             $accounts->decrement('total_transaction');
 
-        if($req->type === 'income')
-        {
-            $accounts->total_balance += $transactions->amount;
-        }
-        else{
-        $accounts->total_balance -= $transactions->amount;
-        }
+            if($req->type == 'income')
+            {
+                $accounts->total_balance -= $transactions->amount;
+            }
+            elseif($req->type == 'expense'|| $req->type == 'transfer' )
+            {
+                $accounts->total_deduct = $accounts->total_deduct -= $transactions->amount;
+                $accounts->total_balance += $transactions->amount;
+            }
+         
     //    $accounts->save();
 
        DB::transaction(function () use ($transactions, $accounts) {

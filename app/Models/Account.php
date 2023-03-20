@@ -11,7 +11,10 @@ class Account extends Model
     public $timestamps=false;
 
 
-  
+    protected $fillable = [
+        'account_name',
+        'account_number',
+    ];
 
     public function account_models(){
         return $this->belongsTo(AccountModel::class);

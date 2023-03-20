@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('user_name');
             $table->string('user_email')->unique();
             $table->string('user_phone')->unique();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('users_id');
             $table->unsignedBigInteger('accounts_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('accounts_id')->references('id')->on('accounts')->onDelete('cascade')->onUpdate('cascade');
             
            

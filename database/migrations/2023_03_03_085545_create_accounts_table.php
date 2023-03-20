@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('account_number')->unique();
             $table->decimal('total_balance', 10, 2)->default(0.00);
             $table->unsignedBigInteger('total_transaction')->default(0);           
-            $table->string('total_deduct');
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('total_deduct')->default(0);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
            
             
             

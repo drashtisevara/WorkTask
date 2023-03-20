@@ -20,13 +20,13 @@ class Transaction extends Model
 
     
     public function account(){
-        return $this->belongsTo(Account::class);
+        return $this->belongsTo(Account::class, 'accounts_id');
 
         
     }
     public function account_models()
     {
-        return $this->belongsTo(AccountModel::class);
+        return $this->belongsTo(AccountModel::class, 'account_models_id');
     }
 
   

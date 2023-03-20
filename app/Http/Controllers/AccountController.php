@@ -35,7 +35,7 @@ class AccountController extends Controller
         $accounts->total_deduct=$req->total_deduct;
        
  
-        $accounts->users_id=auth()->user()->id;
+        $accounts->user_id=auth()->user()->id;
 
        
 
@@ -95,6 +95,8 @@ class AccountController extends Controller
 
 
         $accounts->update();
+
+        return redirect('home');
         // return redirect(route('index'))->with('status', 'Student Updated !!!');
     }
 

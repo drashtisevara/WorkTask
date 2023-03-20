@@ -69,17 +69,51 @@
                             </div>
                         </div>
 
-
-
                         <div class="row mb-3">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
+                            <label for="email"
+                                class="col-md-4 col-form-label text-md-end">{{ __('Account  Name') }}</label>
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
-                                    name="password_confirmation" required autocomplete="new-password">
+                                <input id="account_name" type="text"
+                                    class="form-control @error('account_name') is-invalid @enderror" name="account_name"
+                                    value="{{ old('account_name') }}" required autocomplete="email">
+                                @error('account_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="email"
+                                class="col-md-4 col-form-label text-md-end">{{ __('Account Number') }}</label>
+                            <div class="col-md-6">
+                                <input id="text" type="number"
+                                    class="form-control @error('account_number') is-invalid @enderror"
+                                    name="account_number" value="{{ old('account_number') }}" required
+                                    autocomplete="account_number">
+                                @error('account_number')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

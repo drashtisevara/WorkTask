@@ -73,6 +73,7 @@
 
                                     <th>ID</th>
                                     <th>User Name</th>
+                                    <th>Bank Name</th>
                                     <th>Amount</th>
                                     <th>Type</th>
                                     <th>Category</th>
@@ -89,7 +90,8 @@
                                 <tr>
 
                                     <td>{{$tc['id']}}</td>
-                                    <td>{{$tc['account_models_id']}}</td>
+                                    <td>{{ $tc->account_models->user_name }}</td>
+                                    <td>{{ $tc->account->account_name }}</td>
                                     <td>{{$tc['amount']}}</td>
                                     <td>{{$tc['type']}}</td>
                                     <td>{{$tc['category']}}</td>

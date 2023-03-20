@@ -65,7 +65,7 @@
 
         <div class="container-fluid">
             <!-- Page Heading -->
-            <h5 class="mb-2 text-gray-800">Transaction</h5>
+            <h5 class="mb-2 text-gray-800">Edit Your Account Details</h5>
             <!-- DataTales Example -->
             <div class="card shadow">
                 <div class="card-header py-3 d-flex justify-content-between">
@@ -73,8 +73,8 @@
 
                         <button type="button" class="btn btn-primary float-end" data-toggle="modal"
                             data-target="#exampleModalLong">
-                            Add
-                            Accounts</button>
+                            Edit Account Details
+                        </button>
                     </div>
 
 

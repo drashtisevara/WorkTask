@@ -41,7 +41,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="home"> <span>Accounts</span></a>
+                <a class="nav-link" href=""> <span>Accounts</span></a>
             </li>
             <!-- Divider -->
 
@@ -49,7 +49,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="transaction"> <span>Transaction</span> </a>
+                <a class="nav-link collapsed" href=""> <span>Transaction</span> </a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -105,8 +105,8 @@
 
                                     <td>{{$tc['id']}}</td>
 
-                                    <td>{{$tc['account->accountModels->user_name']}}</td>
-                                    <td>{{$tc['account_name']}}</td>
+                                    <td>{{ $tc->account_models->user_name }}</td>
+                                    <td>{{ $tc->account->account_name }}</td>
                                     <td>{{$tc['amount']}}</td>
                                     <td>{{$tc['type']}}</td>
                                     <td>{{$tc['category']}}</td>
@@ -114,7 +114,7 @@
                                     <td>{{$tc['created_at']}}</td>
                                     <td>
 
-                                        <a href="{{ url('editTransaction/'.$tc->id) }}"
+                                        <a href=" {{ url('editTransaction/'.$tc->id) }}"
                                             class=" btn btn-info btn-sm">Edit</a>
 
 

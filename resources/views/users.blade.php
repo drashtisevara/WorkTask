@@ -39,7 +39,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="home"> <span>Accounts</span></a>
+                <a class="nav-link" href=""> <span>Accounts</span></a>
             </li>
             <!-- Divider -->
 
@@ -49,7 +49,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="transaction"> <span>Transaction</span> </a>
+                <a class="nav-link collapsed" href=""> <span>Transaction</span> </a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -75,18 +75,7 @@
                                     <h6 class="font-weight-bold text-primary mt-2">Add New</h6>
                                 </a>
                             </div>
-                            <!-- <div>
-                                <form class="navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-white border-0 small"
-                                            placeholder="Search for...">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button"> <i class="fa fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div> -->
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
